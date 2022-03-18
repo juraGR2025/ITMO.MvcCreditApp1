@@ -3,13 +3,21 @@ using System.Web.Optimization;
 
 namespace WebApplication1
 {
+
     public class BundleConfig
     {
+      
         // Дополнительные сведения об объединении см. на странице https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            //@Scripts.Render("~/scripts/jquery-1.10.2.js");//Подключение необходимых библиотек в заголовке шаблона 
+            //@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js");//???
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
+            //Регистрируем скрипт Unobtrusive AJAX в конфигурационном файле App_Start\BundleConfig.cs
+            bundles.Add(new ScriptBundle("~/bundles/ajax").Include(
+                        "~/Scripts/jquery.unobtrusive-ajax.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
